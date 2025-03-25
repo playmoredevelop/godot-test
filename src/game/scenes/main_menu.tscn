@@ -1,0 +1,65 @@
+[gd_scene load_steps=6 format=3 uid="uid://crdc55b2hc3xt"]
+
+[ext_resource type="PackedScene" uid="uid://bhajo0dy36jos" path="res://entities/backdrop/backdrop.tscn" id="1_l6cm7"]
+[ext_resource type="PackedScene" uid="uid://b20l8piaphwyi" path="res://entities/confetti/confetti.tscn" id="2_ekxnf"]
+[ext_resource type="Script" uid="uid://chybe2fegpjsb" path="res://backup/tap.gd" id="3_bqqt6"]
+[ext_resource type="Script" uid="uid://bo7avdxa6jd3y" path="res://backup/pulse.gd" id="4_wu84c"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ekxnf"]
+font_size = 45
+font_color = Color(0, 0, 0, 1)
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 0.0941176)
+shadow_offset = Vector2(0, 4)
+
+[node name="main-menu" type="Node2D"]
+metadata/_edit_vertical_guides_ = [375.0]
+metadata/_edit_horizontal_guides_ = [812.0]
+
+[node name="Tap_Behaviour" type="Node" parent="." node_paths=PackedStringArray("target")]
+script = ExtResource("3_bqqt6")
+target = NodePath("..")
+metadata/_custom_type_script = "uid://chybe2fegpjsb"
+
+[node name="Backdrop" parent="." instance=ExtResource("1_l6cm7")]
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Confetti" parent="Node2D" instance=ExtResource("2_ekxnf")]
+position = Vector2(780, 1515)
+rotation = -0.317124
+
+[node name="Confetti2" parent="Node2D" instance=ExtResource("2_ekxnf")]
+position = Vector2(-30, 1480)
+rotation = 0.224505
+
+[node name="Animate_Pulse" type="Node2D" parent="."]
+position = Vector2(375, 360)
+script = ExtResource("4_wu84c")
+timing = 0.55
+metadata/_custom_type_script = "uid://bo7avdxa6jd3y"
+
+[node name="Label" type="Label" parent="Animate_Pulse"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -224.0
+offset_top = -64.5
+offset_right = 224.0
+offset_bottom = 64.5
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(216, 65)
+size_flags_horizontal = 4
+text = "Тапни, чтобы 
+пульнуть партиклы"
+label_settings = SubResource("LabelSettings_ekxnf")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="on_tap_release" from="Tap_Behaviour" to="Backdrop" method="animate_pulse" unbinds=2]
+[connection signal="on_tap_release" from="Tap_Behaviour" to="Node2D/Confetti" method="animate_fire" unbinds=2]
+[connection signal="on_tap_release" from="Tap_Behaviour" to="Node2D/Confetti2" method="animate_fire" unbinds=2]
+[connection signal="on_tap_release" from="Tap_Behaviour" to="Animate_Pulse" method="animate_pulse" unbinds=2]
