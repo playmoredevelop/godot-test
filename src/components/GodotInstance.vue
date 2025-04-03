@@ -32,7 +32,7 @@
 
     try {
 
-      engine.value = new window.Engine({
+      engine.value = new (window as any).Engine({
         canvas: gameplay.value,
         executable: executable.replace('.wasm', ''),
         mainPack,
