@@ -1,0 +1,169 @@
+{
+	"meta": {
+		"image": "ending@2x.png",
+		"size": {"w":1736,"h":1614},
+		"scale": "1"
+	},
+	"frames": {
+		"ray-l.png":
+		{
+			"frame": {"x":2,"y":2,"w":1154,"h":438},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":1154,"h":438},
+			"sourceSize": {"w":1154,"h":438}
+		},
+		"ray-m.png":
+		{
+			"frame": {"x":2,"y":444,"w":1154,"h":286},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x":0,"y":0,"w":1154,"h":286},
+			"sourceSize": {"w":1154,"h":285}
+		},
+		"ray-s.png":
+		{
+			"frame": {"x":2,"y":734,"w":1154,"h":152},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x":0,"y":0,"w":1154,"h":152},
+			"sourceSize": {"w":1154,"h":152}
+		},
+		"winner-tape.png":
+		{
+			"frame": {"x":2,"y":890,"w":678,"h":224},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x":1,"y":8,"w":678,"h":224},
+			"sourceSize": {"w":679,"h":242}
+		},
+		"winner-rays.png":
+		{
+			"frame": {"x":1160,"y":2,"w":574,"h":374},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x":97,"y":254,"w":574,"h":374},
+			"sourceSize": {"w":768,"h":640}
+		},
+		"winner-stars.png":
+		{
+			"frame": {"x":1160,"y":380,"w":552,"h":344},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x":2,"y":0,"w":552,"h":344},
+			"sourceSize": {"w":556,"h":345}
+		},
+		"rays-backdrop.png":
+		{
+			"frame": {"x":2,"y":1118,"w":264,"h":494},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x":0,"y":0,"w":264,"h":494},
+			"sourceSize": {"w":264,"h":495}
+		},
+		"confetti-8.png":
+		{
+			"frame": {"x":1160,"y":728,"w":150,"h":222},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x":1,"y":0,"w":150,"h":222},
+			"sourceSize": {"w":151,"h":223}
+		},
+		"spark-1.png":
+		{
+			"frame": {"x":1314,"y":728,"w":188,"h":132},
+			"rotated": false,
+			"trimmed": false,
+			"spriteSourceSize": {"x":0,"y":0,"w":188,"h":132},
+			"sourceSize": {"w":188,"h":132}
+		},
+		"confetti-2.png":
+		{
+			"frame": {"x":1506,"y":728,"w":66,"h":42},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x":2,"y":2,"w":66,"h":42},
+			"sourceSize": {"w":67,"h":43}
+		},
+		"confetti-3.png":
+		{
+			"frame": {"x":1576,"y":728,"w":66,"h":42},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x":2,"y":1,"w":66,"h":42},
+			"sourceSize": {"w":67,"h":43}
+		},
+		"confetti-7.png":
+		{
+			"frame": {"x":1646,"y":728,"w":64,"h":42},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x":3,"y":1,"w":64,"h":42},
+			"sourceSize": {"w":67,"h":43}
+		},
+		"confetti-6.png":
+		{
+			"frame": {"x":1506,"y":774,"w":64,"h":40},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x":1,"y":0,"w":64,"h":40},
+			"sourceSize": {"w":65,"h":41}
+		},
+		"confetti-9.png":
+		{
+			"frame": {"x":1314,"y":864,"w":56,"h":58},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x":5,"y":8,"w":56,"h":58},
+			"sourceSize": {"w":69,"h":68}
+		},
+		"confetti-4.png":
+		{
+			"frame": {"x":1374,"y":864,"w":52,"h":50},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x":0,"y":2,"w":52,"h":50},
+			"sourceSize": {"w":51,"h":51}
+		},
+		"confetti-5.png":
+		{
+			"frame": {"x":1430,"y":864,"w":52,"h":50},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x":0,"y":1,"w":52,"h":50},
+			"sourceSize": {"w":51,"h":51}
+		},
+		"star1.png":
+		{
+			"frame": {"x":1486,"y":864,"w":40,"h":46},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x":4,"y":1,"w":40,"h":46},
+			"sourceSize": {"w":48,"h":48}
+		},
+		"confetti-1.png":
+		{
+			"frame": {"x":1574,"y":774,"w":40,"h":40},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x":1,"y":0,"w":40,"h":40},
+			"sourceSize": {"w":40,"h":41}
+		},
+		"spark-2.png":
+		{
+			"frame": {"x":1618,"y":774,"w":36,"h":36},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x":2,"y":2,"w":36,"h":36},
+			"sourceSize": {"w":38,"h":38}
+		},
+		"star2.png":
+		{
+			"frame": {"x":1658,"y":774,"w":24,"h":26},
+			"rotated": false,
+			"trimmed": true,
+			"spriteSourceSize": {"x":4,"y":3,"w":24,"h":26},
+			"sourceSize": {"w":32,"h":32}
+		}
+	}
+}

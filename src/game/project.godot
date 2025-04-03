@@ -6,29 +6,49 @@
 ;   [section] ; section goes between []
 ;   param=value ; assign values to parameters
 
-config_version=5
+config_version=4
+
+_global_script_classes=[ {
+"base": "Node2D",
+"class": "Animator_Jump",
+"language": "GDScript",
+"path": "res://entities/animators/Jump.gd"
+}, {
+"base": "Node2D",
+"class": "Animator_ScaleAxis",
+"language": "GDScript",
+"path": "res://entities/animators/ScaleAxis.gd"
+} ]
+_global_script_class_icons={
+"Animator_Jump": "",
+"Animator_ScaleAxis": ""
+}
 
 [application]
 
 config/name="RND"
-config/description="RND для проверки готовности GODOT к использованию в html5"
-config/version="0.0.1"
-run/main_scene="uid://crdc55b2hc3xt"
-config/features=PackedStringArray("4.4", "GL Compatibility")
-boot_splash/bg_color=Color(0, 0, 0, 0)
-boot_splash/show_image=false
-config/icon="res://icon.svg"
+run/main_scene="res://scenes/MapScene.tscn"
+config/icon="res://icon.png"
 
 [display]
 
-window/size/viewport_width=750
-window/size/viewport_height=1624
-window/size/always_on_top=true
-window/stretch/mode="viewport"
-window/stretch/aspect="expand"
-window/handheld/orientation=1
+window/size/width=375
+window/size/height=812
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/pixijs_spritesheet_importer/plugin.cfg" )
+
+[gui]
+
+common/drop_mouse_on_gui_input_disabled=true
+
+[physics]
+
+common/enable_pause_aware_picking=true
 
 [rendering]
 
-renderer/rendering_method="gl_compatibility"
-renderer/rendering_method.mobile="gl_compatibility"
+quality/driver/driver_name="GLES2"
+vram_compression/import_etc=true
+vram_compression/import_etc2=false

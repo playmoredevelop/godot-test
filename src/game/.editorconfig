@@ -1,4 +1,28 @@
+# .editorconfig для Godot с табами
 root = true
 
 [*]
 charset = utf-8
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# Основные файлы Godot
+[*.{gd,gdshader,gdshaderinc}]
+indent_style = tab
+indent_size = 4
+
+# Файлы сцен и ресурсов
+[*.{tscn,tres}]
+indent_style = tab
+indent_size = 4
+
+# Конфигурационные файлы (JSON)
+[*.json]
+indent_style = tab
+indent_size = 2
+
+# Исключения для бинарных файлов
+[*.{import,translation}]
+trim_trailing_whitespace = false
+insert_final_newline = false

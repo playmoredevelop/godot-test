@@ -1,0 +1,15 @@
+[remap]
+
+importer="pixijs_import_spritesheet"
+type="Resource"
+path="res://.import/ending@2x.json-67511b1bce60c28cac94301e2f6753f8.res"
+
+[deps]
+
+files=[ "res://resources/ending@2x.sprites/ray-l.tres", "res://resources/ending@2x.sprites/ray-m.tres", "res://resources/ending@2x.sprites/ray-s.tres", "res://resources/ending@2x.sprites/winner-tape.tres", "res://resources/ending@2x.sprites/winner-rays.tres", "res://resources/ending@2x.sprites/winner-stars.tres", "res://resources/ending@2x.sprites/rays-backdrop.tres", "res://resources/ending@2x.sprites/confetti-8.tres", "res://resources/ending@2x.sprites/spark-1.tres", "res://resources/ending@2x.sprites/confetti-2.tres", "res://resources/ending@2x.sprites/confetti-3.tres", "res://resources/ending@2x.sprites/confetti-7.tres", "res://resources/ending@2x.sprites/confetti-6.tres", "res://resources/ending@2x.sprites/confetti-9.tres", "res://resources/ending@2x.sprites/confetti-4.tres", "res://resources/ending@2x.sprites/confetti-5.tres", "res://resources/ending@2x.sprites/star1.tres", "res://resources/ending@2x.sprites/confetti-1.tres", "res://resources/ending@2x.sprites/spark-2.tres", "res://resources/ending@2x.sprites/star2.tres" ]
+
+source_file="res://resources/ending@2x.json"
+dest_files=[ "res://.import/ending@2x.json-67511b1bce60c28cac94301e2f6753f8.res", "res://resources/ending@2x.sprites/ray-l.tres", "res://resources/ending@2x.sprites/ray-m.tres", "res://resources/ending@2x.sprites/ray-s.tres", "res://resources/ending@2x.sprites/winner-tape.tres", "res://resources/ending@2x.sprites/winner-rays.tres", "res://resources/ending@2x.sprites/winner-stars.tres", "res://resources/ending@2x.sprites/rays-backdrop.tres", "res://resources/ending@2x.sprites/confetti-8.tres", "res://resources/ending@2x.sprites/spark-1.tres", "res://resources/ending@2x.sprites/confetti-2.tres", "res://resources/ending@2x.sprites/confetti-3.tres", "res://resources/ending@2x.sprites/confetti-7.tres", "res://resources/ending@2x.sprites/confetti-6.tres", "res://resources/ending@2x.sprites/confetti-9.tres", "res://resources/ending@2x.sprites/confetti-4.tres", "res://resources/ending@2x.sprites/confetti-5.tres", "res://resources/ending@2x.sprites/star1.tres", "res://resources/ending@2x.sprites/confetti-1.tres", "res://resources/ending@2x.sprites/spark-2.tres", "res://resources/ending@2x.sprites/star2.tres" ]
+
+[params]
+

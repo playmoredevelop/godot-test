@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://resources/playground@2x.sprites/booster-rocket-y.tres" type="Texture" id=1]
+[ext_resource path="res://entities/animators/Jump.gd" type="Script" id=2]
+[ext_resource path="res://entities/animators/ScaleAxis.gd" type="Script" id=3]
+[ext_resource path="res://scenes/Item_Spawner.gd" type="Script" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 54, 65 )
+
+[node name="Item_Spawner" type="Area2D"]
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -61 )
+shape = SubResource( 1 )
+
+[node name="Animator_Jump" type="Node2D" parent="."]
+position = Vector2( 0, -23.4667 )
+script = ExtResource( 2 )
+height = 30.0
+
+[node name="Animator_ScaleAxis" type="Node2D" parent="Animator_Jump"]
+scale = Vector2( 1.17994, 1 )
+script = ExtResource( 3 )
+axis_delay = 0.5
+
+[node name="Sprite" type="Sprite" parent="Animator_Jump/Animator_ScaleAxis"]
+position = Vector2( 3.8147e-06, 0 )
+scale = Vector2( 1, 0.872552 )
+texture = ExtResource( 1 )
+offset = Vector2( 0, -65 )

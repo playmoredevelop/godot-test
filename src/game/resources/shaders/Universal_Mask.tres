@@ -1,0 +1,34 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=1]
+code = "// mask_shader.gdshader
+shader_type canvas_item;
+
+uniform sampler2D mask_texture;
+uniform vec2 mask_pos;      // позиция центра (в пикселях)
+uniform vec2 mask_pixel_size; // размер текстуры маски (в пикселях)
+uniform vec2 viewport_pixel_size; // размер вьюпорта (в пикселях)
+
+void fragment() {
+    // Основной цвет
+    vec4 color = texture(TEXTURE, UV);
+    
+    // Переводим координаты в пиксели
+    vec2 pixel_coord = FRAGCOORD.xy;
+    
+    // Вычисляем UV для маски
+    vec2 mask_uv = (pixel_coord - mask_pos) / mask_pixel_size;
+    mask_uv += vec2(0.5); // Центрируем
+    
+    // Получаем маску (альфа-канал)
+    float mask = texture(mask_texture, mask_uv).a;
+    
+    // Применяем маску
+    COLOR = vec4(color.rgb, color.a * (1.0 - mask));
+}"
+
+[resource]
+shader = SubResource( 1 )
+shader_param/mask_pos = null
+shader_param/mask_pixel_size = null
+shader_param/viewport_pixel_size = null
