@@ -7,6 +7,8 @@ export(float, 1.0, 3.0) var MAX_ZOOM := 2.0
 export(bool) var ZOOM_TO_POINTER := false
 export(Rect2) var LIMIT_AREA := Rect2(0, 0, 1728*3, 864*3)
 
+onready var label: Label = $'../CanvasLayer/Label'
+
 var target_position := position
 var target_zoom := zoom
 
@@ -20,9 +22,11 @@ func _ready():
 
 func _input(event):
 
-	if event is InputEventMouseButton:
-		if event.pressed: touches[0] = event.position
-		else: touches[0] = false
+	# get_tree().set_input_as_handled()
+
+	# if event is InputEventMouseButton:
+	# 	if event.pressed: touches[0] = event.position
+	# 	else: touches[0] = false
 
 	if event is InputEventScreenTouch:
 		if event.pressed:
@@ -31,50 +35,61 @@ func _input(event):
 		else: touches[event.index] = false
 
 	if event is InputEventScreenDrag:
-        # Обновляем позицию касания
 		touches[event.index] = event.position
 
-	is_dragging = typeof(touches[0]) != TYPE_BOOL
-	is_zooming = touches[0] && touches[1]
+	label.text = 'MB %s\nMM %s\nST %s\nSD %s\n---\n%s' % [
+		event is InputEventMouseButton,
+		event is InputEventMouseMotion,
+		event is InputEventScreenTouch,
+		event is InputEventScreenDrag,
+		str("\n".join(touches))
+	]
 
-	if (!is_dragging && !is_zooming): return
+	# is_dragging = typeof(touches[0]) != TYPE_BOOL
+	# is_zooming = touches[0] && touches[1]
 
-	if is_zooming:
+	# # label.text = "%s %s \ndragging %s zooming %s" % [str(touches[0]), str(touches[1]), is_dragging, is_zooming]
 
-		var distance = touches[0].distance_to(touches[1])
+	# if (!is_dragging && !is_zooming): return
 
-		if touch_distance == 0.0:
-			touch_distance = distance
-		else:
-			var zoom_factor = distance / touch_distance
-			target_zoom /= zoom_factor
-			target_zoom.x = clamp(target_zoom.x, MIN_ZOOM, MAX_ZOOM)
-			target_zoom.y = clamp(target_zoom.y, MIN_ZOOM, MAX_ZOOM)
-			target_zoom = clamp_zoom(target_zoom)
-			touch_distance = distance
-		# return
+	# if is_zooming:
 
-	# Перетаскивание камеры
-	if is_dragging:
-		if event is InputEventMouseMotion:
-			set_target(target_position + (touches[0] - event.position) * vec2_camera_speed())
-			touches[0] = event.position
+	# 	var distance = touches[0].distance_to(touches[1])
 
-	# Зум колесом мыши
-	if event is InputEventMouseButton:
+	# 	if touch_distance == 0.0:
+	# 		touch_distance = distance
+	# 	else:
+	# 		var zoom_factor = distance / touch_distance
+	# 		target_zoom /= zoom_factor
+	# 		target_zoom.x = clamp(target_zoom.x, MIN_ZOOM, MAX_ZOOM)
+	# 		target_zoom.y = clamp(target_zoom.y, MIN_ZOOM, MAX_ZOOM)
+	# 		target_zoom = clamp_zoom(target_zoom)
+	# 		touch_distance = distance
+	# 	return
 
-		if event.button_index == BUTTON_WHEEL_UP:
-			target_zoom -= Vector2.ONE * ZOOM_SPEED
-		if event.button_index == BUTTON_WHEEL_DOWN:
-			target_zoom += Vector2.ONE * ZOOM_SPEED
+	# # Перетаскивание камеры
+	# if is_dragging:
+	# 	if event is InputEventMouseMotion:
+	# 		set_target(target_position + (touches[0] - event.position) * vec2_camera_speed())
+	# 		touches[0] = event.position
 
-		target_zoom.x = clamp(target_zoom.x, MIN_ZOOM, MAX_ZOOM)
-		target_zoom.y = clamp(target_zoom.y, MIN_ZOOM, MAX_ZOOM)
-		target_zoom = clamp_zoom(target_zoom)
+	# # Зум колесом мыши
+	# if event is InputEventMouseButton:
 
-		# Для зума к позиции мыши (опционально)
-		if ZOOM_TO_POINTER and event.button_index in [BUTTON_WHEEL_UP, BUTTON_WHEEL_DOWN]:
-			set_target(get_global_mouse_position())
+	# 	if event.button_index == BUTTON_WHEEL_UP:
+	# 		target_zoom -= Vector2.ONE * ZOOM_SPEED
+	# 	if event.button_index == BUTTON_WHEEL_DOWN:
+	# 		target_zoom += Vector2.ONE * ZOOM_SPEED
+
+	# 	target_zoom.x = clamp(target_zoom.x, MIN_ZOOM, MAX_ZOOM)
+	# 	target_zoom.y = clamp(target_zoom.y, MIN_ZOOM, MAX_ZOOM)
+	# 	target_zoom = clamp_zoom(target_zoom)
+
+	# 	# Для зума к позиции мыши (опционально)
+	# 	if ZOOM_TO_POINTER and event.button_index in [BUTTON_WHEEL_UP, BUTTON_WHEEL_DOWN]:
+	# 		set_target(get_global_mouse_position())
+
+	return
 
 func _physics_process(_delta):
 

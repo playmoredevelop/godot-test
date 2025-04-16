@@ -1,17 +1,21 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://resources/playground@2x.sprites/booster-rocket-y.tres" type="Texture" id=1]
-[ext_resource path="res://resources/playground@2x.sprites/item-yellow.tres" type="Texture" id=2]
-[ext_resource path="res://resources/playground@2x.sprites/item-blue.tres" type="Texture" id=3]
+[ext_resource path="res://entities/MassSpawner.gd" type="Script" id=1]
+[ext_resource path="res://resources/700.woff2" type="DynamicFontData" id=2]
+[ext_resource path="res://scenes/MapScene.gd" type="Script" id=3]
 [ext_resource path="res://scenes/MapScene_Camera.gd" type="Script" id=4]
 [ext_resource path="res://resources/map-1.png" type="Texture" id=5]
-[ext_resource path="res://resources/playground@2x.sprites/booster-rocket-x.tres" type="Texture" id=6]
-[ext_resource path="res://resources/playground@2x.sprites/item-green.tres" type="Texture" id=7]
 [ext_resource path="res://scenes/Item_Scene.tscn" type="PackedScene" id=8]
-[ext_resource path="res://resources/playground@2x.sprites/item-red.tres" type="Texture" id=9]
-[ext_resource path="res://resources/playground@2x.sprites/booster-petard.tres" type="Texture" id=10]
+
+[sub_resource type="DynamicFont" id=1]
+size = 20
+font_data = ExtResource( 2 )
+
+[sub_resource type="Theme" id=2]
+default_font = SubResource( 1 )
 
 [node name="MapScene" type="Node2D"]
+script = ExtResource( 3 )
 
 [node name="Map-1" type="Sprite" parent="."]
 scale = Vector2( 3, 3 )
@@ -21,73 +25,26 @@ centered = false
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2( 1357, 1663 )
 current = true
-zoom = Vector2( 1.5, 1.5 )
+zoom = Vector2( 2, 2 )
 smoothing_enabled = true
 smoothing_speed = 10.0
 script = ExtResource( 4 )
 ZOOM_SPEED = 0.2
 MAX_ZOOM = 3.0
 
-[node name="Item_Spawner" parent="." instance=ExtResource( 8 )]
-position = Vector2( 1367, 2161 )
-resources = [ ExtResource( 9 ), ExtResource( 3 ) ]
+[node name="MassSpawner" type="Node2D" parent="."]
+script = ExtResource( 1 )
+instance = ExtResource( 8 )
+count = 50
+area = Rect2( 150, 150, 4734, 2342 )
 
-[node name="Item_Spawner2" parent="." instance=ExtResource( 8 )]
-position = Vector2( 2320, 2137 )
-resources = [ ExtResource( 9 ), ExtResource( 3 ) ]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Item_Spawner3" parent="." instance=ExtResource( 8 )]
-position = Vector2( 288, 2119 )
-resources = [ ExtResource( 9 ), ExtResource( 3 ) ]
-
-[node name="Item_Spawner4" parent="." instance=ExtResource( 8 )]
-position = Vector2( 414, 1165 )
-resources = [ ExtResource( 9 ), ExtResource( 3 ) ]
-
-[node name="Item_Spawner5" parent="." instance=ExtResource( 8 )]
-position = Vector2( 998, 1088 )
-resources = [ ExtResource( 10 ), ExtResource( 2 ), ExtResource( 7 ) ]
-
-[node name="Item_Spawner6" parent="." instance=ExtResource( 8 )]
-position = Vector2( 722, 2152 )
-resources = [ ExtResource( 10 ), ExtResource( 2 ), ExtResource( 7 ) ]
-
-[node name="Item_Spawner7" parent="." instance=ExtResource( 8 )]
-position = Vector2( 1040, 1768 )
-resources = [ ExtResource( 10 ), ExtResource( 2 ), ExtResource( 7 ) ]
-
-[node name="Item_Spawner8" parent="." instance=ExtResource( 8 )]
-position = Vector2( 1922, 1885 )
-resources = [ ExtResource( 10 ), ExtResource( 2 ), ExtResource( 7 ) ]
-
-[node name="Item_Spawner9" parent="." instance=ExtResource( 8 )]
-position = Vector2( 2603, 676 )
-resources = [ ExtResource( 10 ), ExtResource( 2 ), ExtResource( 7 ) ]
-
-[node name="Item_Spawner10" parent="." instance=ExtResource( 8 )]
-position = Vector2( 2499, 1876 )
-resources = [ ExtResource( 1 ), ExtResource( 7 ), ExtResource( 6 ) ]
-
-[node name="Item_Spawner11" parent="." instance=ExtResource( 8 )]
-position = Vector2( 3603, 1302 )
-resources = [ ExtResource( 1 ), ExtResource( 7 ), ExtResource( 6 ) ]
-
-[node name="Item_Spawner12" parent="." instance=ExtResource( 8 )]
-position = Vector2( 3853, 1755 )
-resources = [ ExtResource( 1 ), ExtResource( 7 ), ExtResource( 6 ) ]
-
-[node name="Item_Spawner13" parent="." instance=ExtResource( 8 )]
-position = Vector2( 4811, 1277 )
-resources = [ ExtResource( 1 ), ExtResource( 7 ), ExtResource( 6 ) ]
-
-[node name="Item_Spawner14" parent="." instance=ExtResource( 8 )]
-position = Vector2( 3566, 689 )
-resources = [ ExtResource( 1 ), ExtResource( 7 ), ExtResource( 6 ) ]
-
-[node name="Item_Spawner15" parent="." instance=ExtResource( 8 )]
-position = Vector2( 3055, 2185 )
-resources = [ ExtResource( 10 ), ExtResource( 2 ), ExtResource( 7 ) ]
-
-[node name="Item_Spawner16" parent="." instance=ExtResource( 8 )]
-position = Vector2( 3819, 2158 )
-resources = [ ExtResource( 10 ), ExtResource( 2 ), ExtResource( 7 ) ]
+[node name="Label" type="Label" parent="CanvasLayer"]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 11.0
+margin_top = 12.0
+margin_right = 59.0
+margin_bottom = 26.0
+theme = SubResource( 2 )
+text = "INPUT: "
